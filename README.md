@@ -2,7 +2,7 @@
 
 #########################################################
 # AWS beanstalk url:
-# http://udacity-joshi-image-filter-dev.us-east-2.elasticbeanstalk.com/
+# http://image-filter-starter-code-dev-dev.us-east-2.elasticbeanstalk.com/
 #
 ##########################################################
 
