@@ -10,7 +10,7 @@ const TEST_PASS = "ThisIsMyPassw0rd";
 
     const app = express();
 
-    const port = process.env.PORT || 8080; // env port or default port to listen
+    const port = process.env.PORT || 8082; // env port or default port to listen
 
     app.use(bodyParser.json());
 
