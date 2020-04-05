@@ -13,34 +13,41 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
 const Jimp = require("jimp");
-// filterImageFromURL
-// helper function to download, filter, and save the filtered image locally
-// returns the absolute path to the local image
-// INPUTS
-//    inputURL: string - a publicly accessible url to an image file
-// RETURNS
-//    an absolute path to a filtered image locally saved file
+/*
+ * filterImageFromURL
+ *
+ * Helper function that downloads, filters, and saves the image locally ad returns absolute path of the local image
+ *
+ * :params
+ *      inputURL: string - an image url file
+ * :return
+ *      an absolute path of locally saved image file
+ *
+ * */
 function filterImageFromURL(inputURL) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve) => __awaiter(this, void 0, void 0, function* () {
             const photo = yield Jimp.read(inputURL);
-            const outpath = '/tmp/filtered.' + Math.floor(Math.random() * 2000) + '.jpg';
-            photo
+            const outPath = '/tmp/filtered.' + Math.floor(Math.random() * 2000) + '.jpg';
+            yield photo
                 .resize(256, 256) // resize
                 .quality(60) // set JPEG quality
                 .greyscale() // set greyscale
-                .write(__dirname + outpath, (img) => {
-                resolve(__dirname + outpath);
+                .write(__dirname + outPath, (img) => {
+                resolve(__dirname + outPath);
             });
         }));
     });
 }
 exports.filterImageFromURL = filterImageFromURL;
-// deleteLocalFiles
-// helper function to delete files on the local disk
-// useful to cleanup after tasks
-// INPUTS
-//    files: Array<string> an array of absolute paths to files
+/*
+ * deleteLocalFiles
+ *
+ * Helper function to delete files on the local disk
+ *
+ * :input
+ *      files: Array<string> an array of absolute paths of files
+ * */
 function deleteLocalFiles(files) {
     return __awaiter(this, void 0, void 0, function* () {
         for (let file of files) {
